@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: satellite-preprocessing
+  labels:
+    app: redis
+spec:
+  containers:
+    - name: crop
+      image: jtrneo/redis:fin
+      command: [ "/bin/bash", "-c", "--" ]
+      args: [ "while true; do sleep 30; done;" ]
+      volumeMounts:
+                    - name: nfs
+                      mountPath: "/mnt"
+  volumes:
+               - name: nfs
+                 nfs:
+                   path: /raid/jsdata
+                   server: 172.31.20.20
+  nodeSelector:
+          distype: dg3
+    

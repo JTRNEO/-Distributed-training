@@ -1,0 +1,74 @@
+# Default values for horovod.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+
+#useHostPID: false
+ssh:
+  useHostNetwork: true
+  useSecrets: true
+  port: 32222
+  hostKey: |-
+    -----BEGIN RSA PRIVATE KEY-----
+    MIIEogIBAAKCAQEApv8EPOrhtsVOHu5YJXnHCHSOjLuL6iQuFcNzigceVFDVuGOo
+    l+hCFaLs7sHaMBL9vg0k3PXafRHuOKztjcS3bshvl86yw5sHutRgpzacAWp4twqX
+    gPECYrUkVXoN0+8YvlOwTuPSCTroQNRs/XLuWh4OfqcEIs9OObm1SSZQzKNipdq9
+    BPjgayTozNyR8zuXQoGlueBhWu3xGTNU9O7v10jAlsVp1jo/ihWLie3XkDpIEKni
+    K17IDNZE9BAKS2Ov5ndcWHvKPzyrv7dF+LE5pPrsnKa4zihQZDBamQ54HMEQKhzz
+    Rp56Rv2Ljt/T+djkjYRCtjergOWYwzT9Du2SWQIDAQABAoIBAHHFYbTC7P3hFCT8
+    iq8VdSTsi8WTbHIbLg6Dty59RQt6evCBbPX5NTSaaEMNbMG93oNhXxDuqmj1E1An
+    eDxSngnqoiRRnPaooy6EzEh/au+IAy/pFmixScfH0zYszkjqJvhb+cz1Zz4ElQC9
+    +Hb/myVoPsXIsYeppoirXbe1U+zl9LsIpjpPKr8UuqhNnf2tDlO0kSHjJOLxmN/o
+    Z/gXvXU7Lf0EmRefgxhkoY5cdn44JUgtTGgXUrQvgKzQFA8GTnbbUA7cHYd6LJr6
+    Wkr2IVC8DYsjEK3WuZ0RqWYsBD35mjnH7YPj1HALBrtJCmGdjpuGhngVobWKUaBE
+    Kvi8RNUCgYEA3eVtgEGOZdpiGPCA+yWEowmUsG8VK7az9vGbO0VSoooOmW9/V99A
+    a8jnYZ1tqybv9GEy271Lp/qJebgqpqxMereWYJQFsGLrNQ7zbnZNA2cYmtAknYu0
+    JbxCq9iv5i3tINcFJs5nVTCTXTQMyTku5+kN5wud8reer15bkcEzmR8CgYEAwKmH
+    vJJOJ4enPZK/g0R5hLGLUNIoMtNn1HQJ7LhbIW2hP2wzJ4Qg0Tz0D0SwchIc5BE+
+    HCWLy8jUC3ougrhPixyf0kuUIC5vy0EwbdwqeQt416kPPwDjOtToNE+mZILkvqHv
+    WiR2a0vd1zyL5rl8Yt3Ti+ZYGJmBH8SlzE+mzYcCgYBxxghOQc7ElKPFy9Mmcsc+
+    XVQ63soJHuXJkXoZeuLy6jywGYY+xP6gBWP2HiU0I4PXVtsf5kBbgc9pdK+RxDh2
+    l5loLZ15Ik8dZmwU0F2OiBcKkfykNxSIYK4CtNkD+bpjIzzF+ADtojl9CYogxswx
+    JsL1G3TCFbosiwICiwBs2wKBgCMM9K/e4i8Y49k04HiuNXlpn5HlmgCdK2+gaMnT
+    RGkRe9uBANF4nUvTzgcVFRC7sNvhMy6Fuigp8kHgSaPoijghzgXBUEKGkDonMvtZ
+    qbR53NNHY4mvzKdAYrpZn0j780enSFda+NxOYh6tWjpwlmuaNclm77ISA0bXTN6d
+    wxfzAoGAVj6csIDLWz+A96N3GeB79Q3U8xYFbcbxdGP6eKg0Bz09BzYDWQ8Gwoyt
+    HGBRKUEOqrF84IWyw2CxibsQ6tIx7DIbiIgXZllIwI3xHTi3DARIlxoooufTL9yL
+    M2446h4xz3zzo1nV7lyDpnT6aivRC3Vkb2wBHWcJVI9eZEtwf1w=
+    -----END RSA PRIVATE KEY-----
+ 
+
+  hostKeyPub: |-
+    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCm/wQ86uG2xU4e7lgleccIdI6Mu4vqJC4Vw3OKBx5UUNW4Y6iX6EIVouzuwdowEv2+DSTc9dp9Ee44rO2NxLduyG+XzrLDmwe61GCnNpwBani3CpeA8QJitSRVeg3T7xi+U7BO49IJOuhA1Gz9cu5aHg5+pwQiz045ubVJJlDMo2Kl2r0E+OBrJOjM3JHzO5dCgaW54GFa7fEZM1T07u/XSMCWxWnWOj+KFYuJ7deQOkgQqeIrXsgM1kT0EApLY6/md1xYe8o/PKu/t0X4sTmk+uycprjOKFBkMFqZDngcwRAqHPNGnnpG/YuO39P52OSNhEK2N6uA5ZjDNP0O7ZJZ ubuntu@dgx-r57-1.aidc.local
+
+
+resources: 
+   limits:
+     nvidia.com/gpu: 8
+   requests:
+     nvidia.com/gpu: 8
+
+#ssh:
+#  port: 22
+#  useSecrets: false
+#  hostKey: |-
+#    -----BEGIN RSA PRIVATE KEY-----
+#    YourPrivateKey
+#    -----END RSA PRIVATE KEY-----
+#  hostKeyPub: |-
+#    ssh-rsa YourPublicKey
+
+worker:
+  number: 3
+  image:
+    repository: 172.31.20.21:5000/iiai
+    tag: sniper_train
+    
+
+master:
+  image:
+    repository: 172.31.20.21:5000/iiai
+    tag: sniper_train
+    
+  # args:
+  #  - "mpiexec -n 3 --hostfile /horovod/generated/hostfile --mca orte_keep_fqdn_hostnames t --allow-run-as-root --display-map --tag-output --timestamp-output sh -c 'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-9.0/targets/x86_64-linux/lib/stubs python /examples/tensorflow_mnist.py'"

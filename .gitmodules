@@ -1,0 +1,9 @@
+[submodule "PANet"]
+	path = PANet
+	url = https://github.com/JTRNEO/PANet.git
+[submodule "SNIPER"]
+	path = SNIPER
+	url = https://github.com/JTRNEO/SNIPER.git
+[submodule "yolov3-tf2"]
+	path = yolov3-tf2
+	url = https://github.com/JTRNEO/yolov3-tf2.git

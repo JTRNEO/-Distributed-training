@@ -1,0 +1,28 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: deeplabv3-inference
+spec:
+  parallelism: 32
+  template:
+    metadata:
+      name: job-deeplabv3-inference
+    spec:
+      containers:
+      - name: inference
+        image: jtrneo/deeplabv3:inferbatch
+        volumeMounts:
+                    - name: nfs
+                      mountPath: "/mnt"
+        resources:
+                    limits:
+                      nvidia.com/gpu: 1
+
+      restartPolicy: OnFailure
+      volumes:
+               - name: nfs
+                 nfs:
+                   path: /raid/jsdata
+                   server: 172.31.20.20
+#      nodeSelector: 
+#           distype: dg1

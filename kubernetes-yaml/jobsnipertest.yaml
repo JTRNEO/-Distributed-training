@@ -1,0 +1,32 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: sniper-inference
+spec:
+  parallelism: 2
+  template:
+    metadata:
+      name: job-sniper-inference
+    spec:
+      containers:
+      - name: inference
+        image: sniper_geo:working
+        volumeMounts:
+                    - name: nfs
+                      mountPath: "/sniper"
+        resources:
+                    limits:
+                      nvidia.com/gpu: 1
+        command: [ "/bin/bash", "-c", "--" ]
+        args: [ "while true; do sleep 30; done;" ]
+
+#        command: ['sh','demo_mask_satellite_local.sh']
+      restartPolicy: OnFailure
+      volumes:
+               - name: nfs
+                 nfs:
+                   path: /raid/sniper
+                   server: 172.31.20.20
+      nodeSelector: 
+           distype: dg1
+
