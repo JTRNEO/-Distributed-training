@@ -3,7 +3,7 @@ Use kubernetes and horovod.it has three object detection models include pytorch-
 
 Now it's easy to use Rancher to set up a kubernetes cluster for yourself!
 
-you can follow xxx to build.(if you only have one PC.you can set a cluster that only have one node to test.)
+you can follow https://github.com/JTRNEO/kubernetes to build.(if you only have one PC.you can set a cluster that only have one node to test.)
 
 when you have your own cluster.
 
@@ -33,11 +33,11 @@ warning :if your model is using tensorflow 2.0 beta.  before you install horovod
 
               ln -s tensorflow_framework.so.2 libtensorflow_framework.so.1
             
-create presitentvolume
+create persistentvolume
 
 kubectl apply -f xxx.yaml
 
-create presitentvolumeclaim
+create persistentvolumeclaim
 
 kubectl apply -f xxx_claim.yaml
 
