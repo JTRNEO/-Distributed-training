@@ -90,7 +90,7 @@ run command like this :
 
 #####################for model inference ###################
 
-
+https://github.com/JTRNEO/Redkube
 
 
                        
